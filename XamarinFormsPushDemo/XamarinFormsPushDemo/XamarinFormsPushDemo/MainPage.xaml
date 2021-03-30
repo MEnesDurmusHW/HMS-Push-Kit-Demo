@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Button="clr-namespace:XamarinFormsPushDemo.Controllers"
+             x:Class="XamarinFormsPushDemo.MainPage"
+             BackgroundColor="White">
+
+    <StackLayout Margin="12" BackgroundColor="White">
+        <Button:CustomButton Text="Open Custom Intent URI Page" BackgroundColor="#ff9900"/>
+        <Button:CustomButton Text="Local Notification"  BackgroundColor="#0099ff"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button:CustomButton Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="TurnOff Push"/>
+            <Button:CustomButton Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Text="TurnOn Push"/>
+            <Button:CustomButton Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Get ID"/>
+            <Button:CustomButton Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="Get AAID"/>
+            <Button:CustomButton Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Text="Get Odid"/>
+            <Button:CustomButton Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Get Token" Clicked="OnClickedGetToken"/>
+            <Button:CustomButton Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" Text="Get Creation Time"/>
+            <Button:CustomButton Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Text="Delete AAID"/>
+            <Button:CustomButton Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" Text="Delete Token"/>
+            <Frame Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" CornerRadius="8" Padding="0" >
+                <Editor BackgroundColor="White" TextColor="Black" HorizontalOptions="Center" Text="hms_topic"/>
+            </Frame>
+            <Button:CustomButton Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Text="Subscribe"/>
+            <Button:CustomButton Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="3" Text="Unsubscribe"/>
+            <Button:CustomButton Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Text="Disable AutoInit" Clicked="OnClickedDisableAutoInit"/>
+            <Button:CustomButton Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" Text="Enable AutoInit" Clicked="OnClickedEnableAutoInit"/>
+            <Button:CustomButton Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3" Text="Is AutoInit Enabled"/>
+            <Button:CustomButton Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="3" Text="GetInitialNotification"/>
+            <Button:CustomButton Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="6" Text="Send RemoteMessage"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30615.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsPushDemo.Android", "XamarinFormsPushDemo\XamarinFormsPushDemo.Android\XamarinFormsPushDemo.Android.csproj", "{622BE120-A78E-4C26-AFA0-3A996AD68BE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsPushDemo", "XamarinFormsPushDemo\XamarinFormsPushDemo\XamarinFormsPushDemo.csproj", "{CAF86260-87DF-4507-8B27-021E72ACBE58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622BE120-A78E-4C26-AFA0-3A996AD68BE5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF86260-87DF-4507-8B27-021E72ACBE58}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE74A0A5-2ABC-4320-A616-DDFBA5A65334}
+	EndGlobalSection
+EndGlobal
