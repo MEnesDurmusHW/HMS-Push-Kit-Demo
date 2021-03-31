@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HMSPush\HMSInstanceId.cs" />
+    <Compile Include="HMSPush\HMSMessaging.cs" />
     <Compile Include="HMSPush\HMSPushMessageService.cs" />
     <Compile Include="HMSPush\HMSPushReceiver.cs" />
     <Compile Include="HMSPush\IHMSPushEvent.cs" />
