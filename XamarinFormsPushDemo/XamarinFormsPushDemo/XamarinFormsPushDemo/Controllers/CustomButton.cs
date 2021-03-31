@@ -13,7 +13,7 @@ namespace XamarinFormsPushDemo.Controllers
             TextColor = Color.Black;
             BackgroundColor = Xamarin.Essentials.ColorConverters.FromHex("#d9d9d9");
             FontSize = 12;
-            //TextTransform = TextTransform.None;
+            TextTransform = TextTransform.None;
         }
     }
 }
