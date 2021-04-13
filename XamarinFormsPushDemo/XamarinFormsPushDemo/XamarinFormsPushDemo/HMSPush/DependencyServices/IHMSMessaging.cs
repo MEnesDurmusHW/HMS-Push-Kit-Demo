@@ -13,6 +13,6 @@ namespace XamarinFormsPushDemo.HMSPush
         Task UnsubscribeAsync(string topic);
         Task TurnOffPushAsync();
         Task TurnOnPushAsync();
-        void Send(RemoteMessage message);
+        void Send(RemoteMessageBuilder message);
     }
 }

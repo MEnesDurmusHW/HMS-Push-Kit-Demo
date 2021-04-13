@@ -33,11 +33,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\m84167751\Repos\hwpushkitdemo\HWPushKit\tool.jks</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>123456</AndroidSigningStorePass>
-    <AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
-    <AndroidSigningKeyAlias>xamarinhmspushdemo1007</AndroidSigningKeyAlias>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -68,17 +63,21 @@
   <ItemGroup>
     <Compile Include="HMSPush\HMSInstanceId.cs" />
     <Compile Include="HMSPush\HMSMessaging.cs" />
+    <Compile Include="HMSPush\HMSPushEvent.cs" />
     <Compile Include="HMSPush\HMSPushMessageService.cs" />
-    <Compile Include="HMSPush\HMSPushReceiver.cs" />
     <Compile Include="HMSPush\IHMSPushEvent.cs" />
+    <Compile Include="HMSPush\IHMSTokenEvent.cs" />
+    <Compile Include="HMSPush\LocalNotification.cs" />
+    <Compile Include="HMSPush\OpenDevice.cs" />
     <Compile Include="HMSSample\HmsLazyInputStream.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HMSSample\XamarinCustomProvider.cs" />
+    <Compile Include="Utils\BundleUtils.cs" />
+    <Compile Include="Utils\ClassConverterUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\agconnect-services.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -102,13 +101,19 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\raw\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinFormsPushDemo\XamarinFormsPushDemo.csproj">
       <Project>{E612A089-B848-4334-87BE-10AC18396E7D}</Project>
       <Name>XamarinFormsPushDemo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-hdpi\HWIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\huawei.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

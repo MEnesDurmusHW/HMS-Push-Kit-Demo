@@ -1,15 +1,12 @@
 ﻿using Android.OS;
 using Huawei.Hms.Push;
+using XamarinFormsPushDemo.HMSPush;
 
-namespace XamarinHmsPushDemo.HMSPush
+namespace XamarinFormsPushDemo.Droid.HMSPush
 {
     public interface IHMSPushEvent
     {
-        /// <summary>
-        ///  Called when a new token is received.
-        /// </summary>
-        /// <param name="token"></param>
-        void HMSOnNewToken(string token, Bundle bundle);
+        
         /// <summary>
         /// Receives data messages pushed by the app server.
         /// </summary>
@@ -34,10 +31,5 @@ namespace XamarinHmsPushDemo.HMSPush
         /// <param name="errorCode"></param>
         /// <param name="errorMessage"></param>
         void HMSOnMessageDelivered(string msgId, int errorCode, string errorMessage);
-        /// <summary>
-        /// Called when a token fails to be applied for.
-        /// </summary>
-        /// <param name="exp"></param>
-        void HMSOnTokenError(int errorCode, string errorMessage, Bundle bundle);
     }
 }

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Frame="clr-namespace:XamarinFormsPushDemo.Controllers"
+             xmlns:Label="clr-namespace:XamarinFormsPushDemo.Controllers"             
+             xmlns:Editor="clr-namespace:XamarinFormsPushDemo.Controllers"         
+             xmlns:Button="clr-namespace:XamarinFormsPushDemo.Controllers"
+             x:Class="XamarinFormsPushDemo.LocalNotificationPage"
+             BackgroundColor="#f2f2f2" 
+             Title="Local Notification">
+    <StackLayout Margin="12">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label:CustomLabel Grid.Row="0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"  Text="Title:" />
+            <Frame:CustomFrame Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="1" >
+                <Editor:CustomEditor x:Name="TxtTitle" Text="HMS Push" />
+            </Frame:CustomFrame>
+            <Frame:CustomFrame Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="1" >
+                <Editor:CustomEditor x:Name="TxtTag"  Placeholder="tag" PlaceholderColor="Gray" />
+            </Frame:CustomFrame>
+            <Label:CustomLabel Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"  Text="Message:"/>
+            <Frame:CustomFrame Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                <Editor:CustomEditor x:Name="TxtMessage" Text="This is Local Notification"/>
+            </Frame:CustomFrame>
+            <Label:CustomLabel Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"  Text="BigText:"/>
+            <Frame:CustomFrame Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                <Editor:CustomEditor x:Name="TxtBigText"  Text="This is a Big Text"/>
+            </Frame:CustomFrame>
+            <Label:CustomLabel Grid.Row="3" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"  Text="SmallText:"/>
+            <Frame:CustomFrame Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                <Editor:CustomEditor x:Name="TxtSmallText"  Text="This is a Small Text"/>
+            </Frame:CustomFrame>
+            <Button:CustomButton Grid.Row="4" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="6" BackgroundColor="#0099ff" Text="Local Notification (Default)" FontAttributes="Bold" Clicked="OnClickDefaultNotification"/>
+            <Button:CustomButton Grid.Row="5" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ OnGoing" FontAttributes="Bold" Clicked="OnClickOnGoing"/>
+            <Button:CustomButton Grid.Row="5" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ Sound" FontAttributes="Bold" Clicked="OnClickSound"/>
+            <Button:CustomButton Grid.Row="5" Grid.Column="4" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ Vibrate" FontAttributes="Bold" Clicked="OnClickVibrate"/>
+            <Button:CustomButton Grid.Row="6" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ BigImage" FontAttributes="Bold" Clicked="OnClickBigImage"/>
+            <Button:CustomButton Grid.Row="6" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ Repeate" FontAttributes="Bold" Clicked="OnClickRepeate"/>
+            <Button:CustomButton Grid.Row="6" Grid.Column="4" Grid.RowSpan="1" Grid.ColumnSpan="2" BackgroundColor="#0099ff" Text="+ Scheduled" FontAttributes="Bold" Clicked="OnClickScheduled"/>
+            <Button:CustomButton Grid.Row="7" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Cancel All Notifications" Clicked="OnClickCancelAllNotifications"/>
+            <Button:CustomButton Grid.Row="7" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Get Notifications" Clicked="OnClickGetNotifications"/>
+            <Button:CustomButton Grid.Row="8" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Cancel Scheduled Notifications" FontSize="11" Clicked="OnClickCancelScheduledNotifications"/>
+            <Button:CustomButton Grid.Row="8" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Get Scheduled Local Notifications" FontSize="10" Clicked="OnClickGetScheduledNotifications"/>
+            <Button:CustomButton Grid.Row="9" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Cancel Notifications With Tag" Clicked="OnClickCancelNotificationsWith"/>
+            <Button:CustomButton Grid.Row="9" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Get Channels" Clicked="OnClickGetChannels"/>
+            <Button:CustomButton Grid.Row="10" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Cancel Notifications" Clicked="OnClickCancelNotifications"/>
+            <Button:CustomButton Grid.Row="10" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Delete Channel" Clicked="OnClickDeleteChannel"/>
+            <Button:CustomButton Grid.Row="11" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Channel Blocked" Clicked="OnClickIsChannelBlocked"/>
+            <Button:CustomButton Grid.Row="11" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="3" Text="Channel Exists" Clicked="OnClickChannelExists"/>
+            <ScrollView x:Name="LogScrollView" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="6" Grid.RowSpan="4">
+                <StackLayout x:Name="LogLayout" Orientation="Vertical" VerticalOptions="StartAndExpand" ChildAdded="OnChildAdded">
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+</ContentPage>

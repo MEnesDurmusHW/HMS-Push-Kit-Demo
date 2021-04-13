@@ -1,45 +1,30 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
-using Android.Views;
-using Android.Widget;
 using Huawei.Hms.Aaid;
 using Huawei.Hms.Aaid.Entity;
 using Huawei.Hms.Push;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using XamarinFormsPushDemo.HMSPush;
 using XamarinFormsPushDemo.HMSPush.Model;
-using XamarinHmsPushDemo.HMSPush;
 
 [assembly: Xamarin.Forms.Dependency(typeof(XamarinFormsPushDemo.Droid.HMSPush.HMSInstanceId))]
 namespace XamarinFormsPushDemo.Droid.HMSPush
 {
-    public class HMSInstanceId : IHMSInstanceId, IHMSPushEvent
+    public class HMSInstanceId : IHMSInstanceId, IHMSTokenEvent
     {
         internal static HMSInstanceId Instance { get; private set; }
 
-        internal HmsInstanceId Client { get; set; }
+        private HmsInstanceId Client { get; set; }
 
-        public event EventHandler<string> OnNewToken;
+        public event OnNewTokenHandler OnNewToken;
 
-        public event EventHandler<Exception> OnTokenError;
+        public event OnTokenErrorHandler OnTokenError;
 
-        public bool AutoInitEnabled
-        {
-            get => HmsMessaging.GetInstance(Application.Context).AutoInitEnabled;
-            set => HmsMessaging.GetInstance(Application.Context).AutoInitEnabled = value;
-        }
+        public long GetCreationTime() => Client.CreationTime;
 
-        public long CreationTime { get => Client.CreationTime; }
-
-        public string Id { get => Client.Id;  }
+        public string GetId() => Client.Id;
 
         public void Initialize()
         {
@@ -54,11 +39,11 @@ namespace XamarinFormsPushDemo.Droid.HMSPush
                 try
                 {
                     string token = Client.GetToken("102851541", HmsMessaging.DefaultTokenScope);
-                    OnNewToken?.Invoke(null, token);
+                    OnNewToken?.Invoke(token);
                 }
                 catch (Exception e)
                 {
-                    OnTokenError?.Invoke(null, e);
+                    OnTokenError?.Invoke(e);
                 }
             });
             thread.Start();
@@ -88,35 +73,14 @@ namespace XamarinFormsPushDemo.Droid.HMSPush
             thread.Start();
         }
 
-        #region IHMSPushEvent
+        #region IHMSTokenEvent
         public void HMSOnNewToken(string token, Bundle bundle)
         {
-            OnNewToken?.Invoke(null, token);
+            OnNewToken?.Invoke(token);
         }
-
-        public void HMSOnMessageReceived(Huawei.Hms.Push.RemoteMessage message)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HMSOnMessageSent(string msgId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HMSOnSendError(string msgId, int errorCode, string errorMessage)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void HMSOnMessageDelivered(string msgId, int errorCode, string errorMessage)
-        {
-            throw new NotImplementedException();
-        }
-
         public void HMSOnTokenError(int errorCode, string errorMessage, Bundle bundle)
         {
-            OnTokenError?.Invoke(null, new Exception(errorMessage));
+            OnTokenError?.Invoke(new Exception(errorMessage));
         }
         #endregion
     }
