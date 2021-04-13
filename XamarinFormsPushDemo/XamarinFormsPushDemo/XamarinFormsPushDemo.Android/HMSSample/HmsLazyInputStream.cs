@@ -4,10 +4,6 @@ using Huawei.Agconnect.Config;
 using Android.Content;
 using Android.Util;
 
-/*
- * This class is used to read agconnect-service file.
- */
-
 namespace HMSSample
 {
     public class HmsLazyInputStream : LazyInputStream

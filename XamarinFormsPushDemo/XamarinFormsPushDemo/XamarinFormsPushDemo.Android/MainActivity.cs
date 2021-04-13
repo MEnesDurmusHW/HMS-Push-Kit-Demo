@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using XamarinFormsPushDemo.Droid.HMSPush;
+using Android.Content;
 
 namespace XamarinFormsPushDemo.Droid
 {
@@ -18,6 +20,8 @@ namespace XamarinFormsPushDemo.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            if (HMSPushEvent.Instance != null)
+                HMSPushEvent.Instance.HMSOnInitialNotification(Intent.Extras);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -28,6 +32,18 @@ namespace XamarinFormsPushDemo.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+        protected override void OnNewIntent(Intent intent)
+        {
+            if (HMSPushEvent.Instance != null)
+                HMSPushEvent.Instance.HMSOnInitialNotification(intent.Extras);
+
+        }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            if (HMSPushEvent.Instance != null)
+                HMSPushEvent.Instance.HMSOnInitialNotification(Intent.Extras);
         }
     }
 }

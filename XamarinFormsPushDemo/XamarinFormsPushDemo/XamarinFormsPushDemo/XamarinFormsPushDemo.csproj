@@ -11,17 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="HMSPush\NewFolder\**" />
-    <EmbeddedResource Remove="HMSPush\NewFolder\**" />
-    <None Remove="HMSPush\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="HMSPush\Model\UplinkMessage.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="LocalNotificationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

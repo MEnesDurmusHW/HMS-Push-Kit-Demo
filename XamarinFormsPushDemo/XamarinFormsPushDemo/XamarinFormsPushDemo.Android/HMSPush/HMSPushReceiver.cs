@@ -18,9 +18,8 @@ using Android.Content;
 using Android.OS;
 using Huawei.Hms.Push;
 using System;
-using XamarinFormsPushDemo.Droid.HMSPush;
 
-namespace XamarinHmsPushDemo.HMSPush
+namespace XamarinFormsPushDemo.Droid.HMSPush
 {
     [BroadcastReceiver(Enabled = true, Label = "Push Message Service Receiver")]
     public class HMSPushReceiver : BroadcastReceiver
@@ -35,18 +34,17 @@ namespace XamarinHmsPushDemo.HMSPush
         public const string Bundle = "bundle";
         public override void OnReceive(Context context, Intent intent)
         {
-            //if (intent.Action != "PushReceiver") return;
-
             Bundle bundle = intent.Extras;
 
-            IHMSPushEvent hmsPushEvent = HMSInstanceId.Instance;
+            IHMSTokenEvent hmsTokenEvent = HMSInstanceId.Instance;
+            IHMSPushEvent hmsPushEvent = HMSPushEvent.Instance;
 
             if (bundle.ContainsKey(Method))
             {
                 string method = intent.Extras.GetString(Method);
-                if (method == ((Action<string, Bundle>)hmsPushEvent.HMSOnNewToken).Method.Name)
+                if (method == ((Action<string, Bundle>)hmsTokenEvent.HMSOnNewToken).Method.Name)
                 {
-                    hmsPushEvent.HMSOnNewToken(bundle.GetString(Token), bundle.GetBundle(Bundle));
+                    hmsTokenEvent.HMSOnNewToken(bundle.GetString(Token), bundle.GetBundle(Bundle));
                 }
                 else if (method == ((Action<RemoteMessage>)hmsPushEvent.HMSOnMessageReceived).Method.Name)
                 {
@@ -70,9 +68,9 @@ namespace XamarinHmsPushDemo.HMSPush
                         bundle.GetBundle(Exception).GetInt(ErrorCode),
                         bundle.GetBundle(Exception).GetString(ErrorMessage));
                 }
-                else if (method == ((Action<int, string, Bundle>)hmsPushEvent.HMSOnTokenError).Method.Name)
+                else if (method == ((Action<int, string, Bundle>)hmsTokenEvent.HMSOnTokenError).Method.Name)
                 {
-                    hmsPushEvent.HMSOnTokenError(
+                    hmsTokenEvent.HMSOnTokenError(
                         bundle.GetBundle(Exception).GetInt(ErrorCode),
                         bundle.GetBundle(Exception).GetString(ErrorMessage),
                         bundle.GetBundle(Bundle));

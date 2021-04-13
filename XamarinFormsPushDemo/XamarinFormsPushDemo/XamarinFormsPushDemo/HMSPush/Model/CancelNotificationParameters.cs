@@ -4,8 +4,9 @@ using System.Text;
 
 namespace XamarinFormsPushDemo.HMSPush.Model
 {
-    public class TokenEventArgs : EventArgs
+    public class CancelNotificationParameters
     {
-        public string Token { get; set; }
+        public int Id;
+        public string Tag;
     }
 }
